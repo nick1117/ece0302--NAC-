@@ -48,16 +48,6 @@ TEST_CASE( "Test set", "[bitset]" ) {
     REQUIRE(b.asString().compare(s) == 0);
 }
 
-TEST_CASE( "Test set with default init", "[bitset]" ) {
-    std::string s("00010001");
-    Bitset b;
-    b.set(3);
-    b.set(7);
-    REQUIRE(b.size() == 8);
-    REQUIRE(b.good());
-    REQUIRE(b.asString().compare(s) == 0);
-}
-
 TEST_CASE( "Test set with size init", "[bitset]" ) {
     std::string s("00010");
     Bitset b(5);

@@ -16,6 +16,10 @@ TARGET_LINK_LIBRARIES(compare image)
 set(QUEUE_SOURCE
   list.hpp list.tpp queue.hpp queue.tpp)
 
+if(EXISTS "${PROJECT_SOURCE_DIR}/Node.tpp" AND EXISTS "${PROJECT_SOURCE_DIR}/Node.hpp")
+    set(QUEUE_SOURCE ${QUEUE_SOURCE} Node.tpp Node.hpp)
+endif()
+
 set(TEST_SOURCE
   test_queue.cpp)
 

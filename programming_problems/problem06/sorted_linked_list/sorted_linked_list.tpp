@@ -74,7 +74,7 @@ void SortedLinkedList<T>::clear()
 template <typename T>
 T SortedLinkedList<T>::getEntry(std::size_t position) const
 {
-  return LinkedList<T>::getEntry(position+1);
+  return LinkedList<T>::getEntry(position);
 }
 
 template <typename T>

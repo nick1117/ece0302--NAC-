@@ -25,7 +25,6 @@ public:
   bool isEmpty() const;
 
   // enqueue (add) newEntry into the queue back
-  // throw exception if not possible
   void enqueue(const T& item);
 
   // dequeue (remove) newEntry from the queue front

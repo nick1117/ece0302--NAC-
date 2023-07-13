@@ -7,6 +7,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(SOURCE test_database.cpp Database.hpp Database.tpp binary_search_tree.hpp binary_search_tree.tpp abstract_list.hpp list.hpp list.tpp)
 
+if(EXISTS "${PROJECT_SOURCE_DIR}/Node.tpp" AND EXISTS "${PROJECT_SOURCE_DIR}/Node.hpp")
+    set(SOURCE ${SOURCE} Node.tpp Node.hpp)
+endif()
+
 add_executable(test-database test_database.cpp Database.hpp)
 
 enable_testing()

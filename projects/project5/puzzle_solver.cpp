@@ -1,8 +1,7 @@
-#include "puzzle_solver.hpp"
-
 #include <functional>
 #include <unordered_set>
 
+#include "puzzle_solver.hpp"
 #include "puzzle.hpp"
 #include "state.hpp"
 #include "frontier_queue.hpp"

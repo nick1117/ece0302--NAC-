@@ -1,0 +1,42 @@
+### Carrano Ch 1 Exercise 2a- page 28 ######################################################################
+
+/***
+advanced the date by one day
+@pre the date must be a usable date 
+@post the date will be incremented by one day
+@arguments none
+@return none */
+advanceDate(anEntry)
+
+### Carrano Ch 1 Exercise 5 ######################################################################
+
+
+int RemoveAndCount(T& bag){
+    if bag.empty(){
+        return 0;
+    }
+}
+    
+### Carrano Ch 3 Exercise 2 - page 115 ######################################################################
+
+bool replace(T& bag, const T& oldItem, const T& newItem){
+    for (item : bag){
+        if(item == oldItem){
+            item = newItem;
+            return true;
+        }
+    }
+    return false;
+}
+
+### Carrano Ch 3 Exercise 3 ######################################################################
+
+A) Making replace in terms of ADT bag operations make it adaptable for different ADT bag uses. It makes the program more modular and cna be used for
+different 'Bags'. Some disadvantages is if the bag is large it might take a while to iterate through. Also if the replace function is not
+modular enough it might cause inefficency.
+
+B) Advantages to adding replace to the ADT bag is that it allows users to expect a standard set of operations such as replace whihch help users
+by making the program more user friendly. A disadvantage is that it increase complexity and the replace function might not be effective for all types
+of bags. 
+
+### Carrano Ch 3 Exercise 5 ######################################################################

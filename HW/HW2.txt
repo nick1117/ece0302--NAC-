@@ -1,0 +1,121 @@
+### Carrano Ch 12 Exercise 3 ###############################################################
+
+A) both methods, LandVehicle and MotorizedLandVehicles can use getSpeed
+B) Only MotorizedLandVehicle can use getEngineCapacity
+
+### Carrano Ch 12 Exercise 4 ###############################################################
+
+A) Both landVeh and motorVeh can use getWheelCount since it is a method in the LandVehicle class which is the parent class
+B) Only motorVeh can use getFuelType since getFuelType is only in the MotorizedLandVehicle class
+
+### Carrano Ch 12 Exercise 9 ###############################################################
+
+class person
+{
+    protected:
+        int age;
+        char gender;
+        std::string name;
+    public:
+        person(int a, char g, std::string n) {age = a; gender = g; name = n}
+        std::string getName() const {} return name; }
+        void setName(const std::string& newname) {name = newname; }
+        int getAge() const {return age;}
+        void setAge(int newage) {age = newage;} 
+        char getGender() const {return gender;}
+        void setGender(char newGender) {gender = newgender;}
+        virtual std::string toString() const = 0;
+}
+class student : public person
+{
+    protected:
+        std::string studentID;
+        std::string major;
+        int gradyear;
+        double GPA;
+        std::vector<std::string> courses;
+    public:
+        student(int a, char g, std::string n, std::string id, std::string m, int gy, double gp, int nc) {
+            person(a, g, n); studentID = id; major = m; gradyear = gy; GPA = gp;}
+
+        std::string getstudentID() const (return studentID;)
+        void setstudentID(const std::string& newstudentID) { studentID = newstudentID; }
+
+        std::string getmajor() const (return major;)
+        void setmajor(const std::string& newmajor) { major = newmajor; }
+
+        int getgradyear() const (return gradyear;)
+        void setgradyear(const int newgradyear) { gradyear = newgradyear; }
+
+        double getGPA() const (return GPA;)
+        void setGPA(const double newGPA) { GPA = newGPA; }
+
+        const std::vector<std::string>& getcourses() const {return courses;}
+        void addCourse(const std::string& newcourse) { courses.push_back(newcourse); }
+        void dropCourse(const std::string& newcourse) {
+            auto it = std::find(courses.begin(), courses.end(), course);
+            if (it != courses.end()) {
+                courses.erase(it);
+            }
+        }       
+
+        std::string toString() const override;
+}
+
+std::string Student::toString() const {
+    return "Student: " + name + " Gender: " + gender + " age:" + age + " ID: " + studentID + " major: " + major +
+           " Grad Year: " + std::to_string(gradYear) + " GPA: " + std::to_string(GPA); }
+
+class GradStudent : student 
+{
+    private:
+        std::string gradprogram
+    public:
+        Gradstudent(int a, char g, std::string n, std::string id, std::string m, int gy, double gp, std::string program) {
+            student(a, g, n, id, m, gy, gp); gradprogram = program;}
+
+        std::string getgradprogram() const (return gradprogram;)
+        void setgradprogram(const std::string& newgradprogram) {gradprogram = newgradprogram;}
+
+        std::string toString() const override;
+}
+
+std::string Student::toString() const {
+    return "Grad Student: " + name + " graduate program: " + gradprogram +  " Gender: " + gender + " age:" + age + " ID: " + studentID + " major: " + major +
+           " Grad Year: " + std::to_string(gradYear) + " GPA: " + std::to_string(GPA); }
+
+
+### Carrano Ch 12 Exercise 10 ###############################################################
+
+class Employee : public person 
+{
+    protected:
+    public: 
+        Employee(int a, char g, std::string n)
+            { person(a, g, n); }
+
+        virtual double getPay() const = 0;
+}
+
+class HourlyEmployee : public Employee
+{
+    private:
+        double wage;
+        double hours;
+    public:
+        HourlyEmployee(int a, char g, std::string n, int w, int h){
+            Employee(a, g, n); wage = w; hours = h; }
+        
+        double getPay() const override { return wage * hours;}
+}
+
+class SalaryEmployee : public Employee
+{
+    private:
+        double salary
+    public:
+        SalaryEmployee(int a, char g, std::string n, double s){
+            Employee(a, g, n); salary = s; }
+
+        double getPay() const override {return salary/12;}
+}

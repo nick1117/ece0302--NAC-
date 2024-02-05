@@ -9,6 +9,12 @@ class LimitedSizeBag: public AbstractBag<T>
 public:
   // default constructor
   LimitedSizeBag();
+
+  // copy constructor
+  LimitedSizeBag(LimitedSizeBag& x);
+
+  // copy assignment
+  LimitedSizeBag& operator=(LimitedSizeBag x);
   
   // add an item to the bag
   bool add(const T & item);
@@ -35,8 +41,10 @@ public:
   static const std::size_t maxsize = 100;
 
 private:
-
   // TODO
+  T Bag[maxsize];
+  int size;
+  bool empty;
 };
 
 #include "limited_size_bag.tpp"

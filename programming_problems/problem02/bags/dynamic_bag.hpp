@@ -46,6 +46,8 @@ public:
 private:
   int size = 0;
   T* Bag = new T[size];
+
+  
   bool empty;
   //int limit;
 };

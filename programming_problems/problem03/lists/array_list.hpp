@@ -47,7 +47,8 @@ public:
 private:
 
   // TODO
-  
+  T* ListArray;
+  int arraySize;
 };
 
 #include "array_list.tpp"

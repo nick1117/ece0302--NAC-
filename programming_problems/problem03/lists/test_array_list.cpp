@@ -6,6 +6,7 @@
 //force class expansion
 template class ArrayList<int>;
 
+
 TEST_CASE( "Default constructor", "[ArrayList]" ) {
   ArrayList<int> list;
   REQUIRE(list.getLength() == 0);

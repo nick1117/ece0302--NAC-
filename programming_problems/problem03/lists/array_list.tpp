@@ -5,13 +5,14 @@ ArrayList<T>::ArrayList()
 {
   arraySize = 0;
   ListArray = new T[arraySize];
+  //delete [] ListArray;
 }
 
 template <typename T>
 ArrayList<T>::~ArrayList() 
 { 
   arraySize = 0;
-  //delete [] ListArray;
+  delete [] ListArray;
   ListArray = nullptr;
 }
 
@@ -58,13 +59,12 @@ std::size_t ArrayList<T>::getLength() const noexcept {
 
 template <typename T>
 bool ArrayList<T>::insert(std::size_t position, const T& item){
-  T* DummyArray = new T[arraySize+1];
-  int newSize = arraySize + 1;
-  size_t i;
-
   if(position < 0 || position > arraySize){
     return false;
   }
+  arraySize++;
+  T* DummyArray = new T[arraySize];
+  size_t i;
 
   for (i = 0; i < position; i++) //note
   {
@@ -72,15 +72,13 @@ bool ArrayList<T>::insert(std::size_t position, const T& item){
   }
 
   DummyArray[position] = item; //i = 5
-  
-  for (i = position; i < (newSize); i++)
+
+  for (i = position+1; i < (arraySize); i++)
   {
-    DummyArray[i+1] = ListArray[i];
+    DummyArray[i] = ListArray[i-1];
   }
-  
-  arraySize = newSize;
+  delete [] ListArray;
   ListArray = DummyArray;
-  //delete [] DummyArray;
   DummyArray = nullptr;
   
   return true;
@@ -88,26 +86,26 @@ bool ArrayList<T>::insert(std::size_t position, const T& item){
 
 template <typename T>
 bool ArrayList<T>::remove(std::size_t position){
-  T* DummyArray = new T[arraySize-1];
-  int newSize = arraySize - 1;
-  size_t i;
-  
-  if(position < 0 || position > arraySize){
+  if(position < 0 || position >= arraySize){
     return false;
   }
+
+  arraySize--;
+  T* DummyArray = new T[arraySize];
+  size_t i;
 
   for (i = 0; i < position; i++) //note
   {
     DummyArray[i] = ListArray[i];
   }
-  for (i = position; i < (newSize); i++)
+  for (i = position; i < (arraySize); i++)
   {
     DummyArray[i] = ListArray[i+1];
   }
-
-  arraySize = newSize; 
+  
+  delete [] ListArray;
   ListArray = DummyArray;
-  //delete [] DummyArray;
+  //delete DummyArray;
   DummyArray = nullptr;
 
   return true;;
@@ -117,7 +115,7 @@ template <typename T>
 void ArrayList<T>::clear() 
 {
   arraySize = 0;
-  //delete [] ListArray;
+  //delete ListArray;
   ListArray = nullptr;
 }
 

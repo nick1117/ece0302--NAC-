@@ -1,0 +1,66 @@
+pg 156
+---------------------------------------------------------------------------------------------------------------
+1. Carrano Ch 4 Exercise 3 (a)
+---------------------------------------------------------------------------------------------------------------
+
+template <typename Typename
+int LinkedBag<Typename>::getCurrentSize() const 
+{
+    int count = 0;
+    Node<T>* dummyPtr;
+    dummyPtr = headPtr;
+    
+    while(dummyPtr != nullptr){
+        count++;
+        dummyPtr = dummyPtr->getNext();
+    }
+
+}
+
+---------------------------------------------------------------------------------------------------------------
+2. Carrano Ch 4 Exercise 9
+---------------------------------------------------------------------------------------------------------------
+
+
+
+---------------------------------------------------------------------------------------------------------------
+3. Carrano Ch 4 Exercise 10
+---------------------------------------------------------------------------------------------------------------
+ template<class ItemType>
+ class DoubleNode
+ {
+    private:
+        ItemType item;
+        DoubleNode<ItemType>* next;
+        DoubleNode<ItemType>* last;
+    public:
+        DoubleNode();
+        DoubleNode(const ItemType& anItem);
+        DoubleNode(const ItemType& anItem, Node<ItemType>* nextNodePtr, DoubleNode<ItemTpye>* lastNodePtr);
+
+        void setItem(const ItemType& anItem);
+        void setNext(DoubleNodeNode<ItemType>* nextNodePtr);
+        void setLast(DoubleNodeNode<ItemType>* LastNodePtr);
+        ItemType getItem() const ;
+        DoubleNode<ItemType>* getNext() const ;
+        DoubleNode<ItemType>* getLast() const ;
+ }
+
+#include "DoubleNode.tpp"
+#endif
+---------------------------------------------------------------------------------------------------------------
+4. Carrano Ch 4 Exercise 11
+---------------------------------------------------------------------------------------------------------------
+
+DoubleNode<T>* Ptr = newDoubleNode(NewValue);
+Ptr->setNext(headPtr);
+headPtr->setLast(Ptr);
+headPtr = Ptr;
+
+---------------------------------------------------------------------------------------------------------------
+5. Carrano Ch 4 Exercise 12
+---------------------------------------------------------------------------------------------------------------
+DoubleNode<T>* Ptr = headPtr;
+headPtr = headPtr->getNext();
+headPtr->setLast(nullptr)
+Ptr->setNext(nullPtr);

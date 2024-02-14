@@ -1,0 +1,104 @@
+ch2 - pg 89, ch 6 - pg 216
+---------------------------------------------------------------------------------------------------------------
+1. Carrano Ch 2 Exercise 1
+---------------------------------------------------------------------------------------------------------------
+
+There are a few reasons why this function is recursive. 
+
+Base case. (n <= 0) - If this condition is met it pulls the recurision out.
+
+Everytime the function is recalled, it is called with n-1. This will make sure the function approaches the 
+base  case condition. This can be seen by passing getNumberEqual n-1
+
+This is also a criteria as the function calls itself. 
+
+---------------------------------------------------------------------------------------------------------------
+2. Carrano Ch 2 Exercise 2b
+a. First see Checkpoint Question 3,
+---------------------------------------------------------------------------------------------------------------
+
+On image
+
+---------------------------------------------------------------------------------------------------------------
+3. Carrano Ch 2 Exercise 6
+---------------------------------------------------------------------------------------------------------------
+
+There is no base case so the function lacks a condition that will tell it it has reached the end. So this 
+function will continue to infinity
+
+---------------------------------------------------------------------------------------------------------------
+4. Carrano Ch 6 Exercise 6a
+---------------------------------------------------------------------------------------------------------------
+abc<de<<fg<h
+
+a
+a b
+a b c
+a b 
+a b d
+a b d e
+a b d
+a b
+a b f
+a b f g
+a b f 
+a b f h
+
+---------------------------------------------------------------------------------------------------------------
+5. Carrano Ch 6 Exercise 11
+---------------------------------------------------------------------------------------------------------------
+a = 7
+b = 3
+c = 12
+d = -5
+e = 1
+
+A) a b c + -
+stack values
+     7
+   3 7
+12 3 7
+  15 7
+solution = -8
+
+B) a b c - d * + 
+
+     7
+    3 7
+12  3 7
+   -9 7 
+-5 -9 7
+   45 7
+solution: 52
+
+C) a b + c - d e * +
+      7
+   3  7
+     10
+  12 10
+     -2
+  -5 -2
+1 -5 -2
+  -5 -2
+solution: -7
+
+---------------------------------------------------------------------------------------------------------------
+6. Carrano Ch 7 Exercise 1
+---------------------------------------------------------------------------------------------------------------
+Array based 
+advantages: accessing memory is simple and efficent as we know the index of specific values in the array
+distavantges: the size has to constantly be updated if you want to add or remove items
+
+Link Based
+advantages: dynamic by nature so adding and removing items is easy as you do not need to update the size
+distavanteges: have to iterate through list to find items and can be more complex to set up. Might
+have memory leaks as well
+
+---------------------------------------------------------------------------------------------------------------
+7. Carrano Ch 7 Exercise 2
+---------------------------------------------------------------------------------------------------------------
+
+A) No we would not be able to implement the ADT stack by using a bag to contain its entries because of the 
+requirements for ordering data in stack
+B) Yes we would be able to implement the ADT Bag by using stack to conatin its entries. That is because 
+a bag doesn't care about the order of entires but interfacing with the bag would be different and complex

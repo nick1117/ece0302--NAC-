@@ -21,7 +21,18 @@ int LinkedBag<Typename>::getCurrentSize() const
 2. Carrano Ch 4 Exercise 9
 ---------------------------------------------------------------------------------------------------------------
 
+    Array based:
+    To remove an entry we need to search through the whole array until it is found.
+    Once found and deleted we need to shift all values that are right of the position
+    to the left to fill the gap left. This might mean shifting most of the array and then 
+    we need to reset the size
 
+    Link Based:
+    For linked list we still need to search through the whole array until the item is 
+    found. but once deleted we just need to reset the pointers. For the element to the left, 
+    we need to set it so it is now pointing to the element to the right of the position we
+    deleted. Since this doesn't require shifting each element after the position like array based
+    it is a lot faster.
 
 ---------------------------------------------------------------------------------------------------------------
 3. Carrano Ch 4 Exercise 10

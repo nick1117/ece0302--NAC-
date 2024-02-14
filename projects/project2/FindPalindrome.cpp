@@ -54,18 +54,17 @@ FindPalindrome::FindPalindrome()
 
 FindPalindrome::~FindPalindrome()
 {
-	// TODO need to implement this...
+	clear();
 }
 
 int FindPalindrome::number() const
 {
-	// TODO need to implement this...
-	return 10;
+	return numP;
 }
 
 void FindPalindrome::clear()
 {
-	// TODO need to implement this...
+	numP = 0;
 }
 
 bool FindPalindrome::cutTest1(const vector<string> & stringVector)

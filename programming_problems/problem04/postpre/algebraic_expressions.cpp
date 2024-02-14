@@ -5,6 +5,8 @@ using std::string;
 
 #include <cctype> // for isalpha
 
+#include <stack>
+
 #include "algebraic_expressions.hpp"
 
 bool isoperator(char ch) {
@@ -41,8 +43,48 @@ bool isPost(string s) {
   return (firstChar == 0);
 }
 
+// Convert the input expression postfix to prefix
+// Preconditions: postfix is a valid postfix expression
+//size - return size
+//top - access next element
+//push - insert an elemnt
+//pop - remove top element
+//swap - swap contents
 void convert(string &postfix, string &prefix) {
 
-  // TODO
+  std::stack<string> obj;
+  //get length of postfix and loop throught it
+  size_t length = postfix.size();
+  for(size_t i = 0; i < length; i++){
+    //set the index of postfix to a character value c
+    char c = postfix[i];
+    //if the value is not an operator and is a letter, push it onto obj
+    if(isalpha(c)){
+      obj.push(string(1,c));
+    }
+    //if the index is an operator
+    else if(isoperator(c)){
+      //save the right most value and remove it
+      string alpha2 = obj.top();
+      obj.pop();
+      //save the new right most value and remove it
+      string alpha1 = obj.top();
+      obj.pop();
+      //create a new string with the format below
+      string resultant = c + alpha1 + alpha2;
+      //push this resultant to the object
+      obj.push(resultant);
+    }
+    //else output error message
+    else{
+      std::cout << "Error";
+      return;
+    }
+    //set prefix to the obj at the end of loop
+    prefix = obj.top();
+
+
+  }
+
   
 }

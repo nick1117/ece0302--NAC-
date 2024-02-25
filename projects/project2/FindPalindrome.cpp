@@ -200,7 +200,7 @@ bool FindPalindrome::cutTest2(const vector<string> & stringVector1,
 	std::string smaller;
 	if(Vect1.size() >= Vect2.size()){ // change from stringVector# to Vect#
 		bigger = Vect1;
-		smaller = Vect2;
+		smaller = Vect2;//
 	}
 	else{
 		bigger = Vect2;

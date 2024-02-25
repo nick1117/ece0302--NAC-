@@ -93,3 +93,4 @@ TEST_CASE("test cut test 2", "[FindPalindrome]"){
 	REQUIRE(b.cutTest2(str1,str2));
 	
 }
+//

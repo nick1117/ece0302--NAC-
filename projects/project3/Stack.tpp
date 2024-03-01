@@ -1,4 +1,3 @@
-//  Adapated from Frank M. Carrano and Timothy M. Henry.
 
 /** ADT Stack implementation.
     @file Stack.cpp */
@@ -12,18 +11,23 @@
 template<class ItemType>
 Stack<ItemType>::Stack() 
 {
+	headPtr = nullptr;
+	currentSize = 0;
 }  // end default constructor
 
 // TODO: Implement the destructor here
 template<class ItemType>
 Stack<ItemType>::~Stack()
 {
+	clear();
 }  // end destructor
 
 // TODO: Implement the isEmpty method here
 template<class ItemType>
 bool Stack<ItemType>::isEmpty() const
 {
+	if(currentSize != 0)
+		return false;
 	return true;
 }  // end isEmpty
 
@@ -31,13 +35,19 @@ bool Stack<ItemType>::isEmpty() const
 template<class ItemType>
 int Stack<ItemType>::size() const
 {
-	return 0;
+	return currentSize;
 }  // end size
 
 // TODO: Implement the push method here
 template<class ItemType>
 bool Stack<ItemType>::push(const ItemType& newItem)
 {
+	Node<ItemType>* tempPtr;
+	tempPtr = nullptr;
+	tempPtr = new Node<ItemType>(newItem, headPtr);
+	headPtr = tempPtr;
+	currentSize++;
+	
 	return true;
 }  // end push
 
@@ -45,7 +55,12 @@ bool Stack<ItemType>::push(const ItemType& newItem)
 template<class ItemType>
 ItemType Stack<ItemType>::peek() const
 {
+	if(currentSize == 0 || headPtr == nullptr){
+		throw logic_error("Size of stack is null");
+	}
 	ItemType returnItem;
+	returnItem = headPtr->getItem();
+	
 	return returnItem;
 }  // end peek
 
@@ -53,12 +68,25 @@ ItemType Stack<ItemType>::peek() const
 template<class ItemType>
 bool Stack<ItemType>::pop() 
 {
-	return false;
+	if(currentSize == 0 || headPtr == nullptr){
+		return false;
+	}
+	Node<ItemType>* tempPtr;
+	tempPtr = headPtr;
+	headPtr = headPtr->getNext();
+	delete tempPtr;
+	tempPtr = nullptr;
+	currentSize--;
+
+	return true;
 }  // end pop
 
 // TODO: Implement the clear method here
 template<class ItemType>
 void Stack<ItemType>::clear()
 {
+	while(!isEmpty()){
+		pop();
+	}
 }  // end clear
 
